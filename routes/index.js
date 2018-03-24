@@ -28,6 +28,18 @@ db.on('error',function (err) {
     console.log(err);
 
 });
+router.post('/UPD', function(req, res, next) {
+    var id = req.body.ida;
+    var text = req.body.tash;
+   // console.log(id+"---"+text)
+    task.findById(id, function(err, doc) {
+
+        doc.text = text;
+
+        doc.save();
+    });
+    res.redirect('/');
+});
 /* GET home page. */
 router.get('/', function(req, res, next) {
 
