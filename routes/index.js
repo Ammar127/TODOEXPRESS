@@ -2,9 +2,14 @@ var express = require('express');
 var router = express.Router();
 
 const mongoose = require('mongoose');
-
-mongoose.connect('mongodb://localhost/Test');
-
+var URL='';
+if (process.env.NODE_ENV === 'production') {
+    URL = process.env.MONGO_URI;
+}
+else{
+URL = 'mongodb://localhost/Test';
+}
+    mongoose.connect(URL);
 var db = mongoose.connection;
 // check connection
 
