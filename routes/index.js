@@ -9,7 +9,7 @@ if (process.env.NODE_ENV === 'production') {
 else{
 URL = 'mongodb://localhost/Test';
 }
-    mongoose.connect(URL);
+    mongoose.connect('mongodb://amm:7371@ds123499.mlab.com:23499/todoammar');
 var db = mongoose.connection;
 // check connection
 
